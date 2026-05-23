@@ -8,8 +8,11 @@ let totalEstoqueBaixo = 0;
 let safraMaisAntiga = 9999;
 let vinhoMaisAntigo = "";
 
-const botaoCadastro = document.getElementById("cadastro");
-const botaoSobre = document.getElementById("sobre");
+const botaocadastro =
+    document.getElementById("cadastro");
+
+const botaoSobre =
+    document.getElementById("sobre");
 
 // ===============================
 // LISTA DE VINHOS
@@ -36,47 +39,12 @@ let vinhos = [
         tipo: "Rosé",
         safra: 2021,
         estoque: 2
-    },
-
-    {
-        nome: "Quartzo Branco",
-        tipo: "Branco",
-        safra: 2020,
-        estoque: 8
-    },
-
-    {
-        nome: "Aurora Rosé",
-        tipo: "Rosé",
-        safra: 2022,
-        estoque: 5
-    },
-
-    {
-        nome: "Imperium Noir",
-        tipo: "Tinto",
-        safra: 2012,
-        estoque: 4
-    },
-
-    {
-        nome: "Veluna Classic",
-        tipo: "Tinto",
-        safra: 2016,
-        estoque: 6
-    },
-
-    {
-        nome: "Terra Nobile",
-        tipo: "Tinto",
-        safra: 2014,
-        estoque: 7
     }
 
 ];
 
 // ===============================
-// FUNÇÃO ESTOQUE BAIXO
+// ESTOQUE BAIXO
 // ===============================
 
 function estoqueBaixo(quantidade) {
@@ -91,7 +59,10 @@ function estoqueBaixo(quantidade) {
 
 function validarEntrada(texto) {
 
-    while (texto === null || texto.trim() === "") {
+    while (
+        texto === null ||
+        texto.trim() === ""
+    ) {
 
         texto = prompt(
             "Entrada inválida. Digite novamente:"
@@ -109,7 +80,10 @@ function validarEntrada(texto) {
 
 function validarNumero(numero) {
 
-    while (isNaN(numero) || numero < 0) {
+    while (
+        isNaN(numero) ||
+        numero < 0
+    ) {
 
         numero = Number(
             prompt("Digite um número válido:")
@@ -163,7 +137,9 @@ function mostrarDados(
     classificacao
 ) {
 
-    console.log("===== DADOS DO VINHO =====");
+    console.log(
+        "===== DADOS DO VINHO ====="
+    );
 
     console.log("Nome: " + nome);
 
@@ -172,11 +148,13 @@ function mostrarDados(
     console.log("Safra: " + safra);
 
     console.log(
-        "Quantidade em estoque: " + quantidade
+        "Quantidade em estoque: " +
+        quantidade
     );
 
     console.log(
-        "Classificação: " + classificacao
+        "Classificação: " +
+        classificacao
     );
 
 }
@@ -185,7 +163,8 @@ function mostrarDados(
 // BOTÃO CADASTRAR
 // ===============================
 
-botaoCadastro.addEventListener(
+botaocadastro.addEventListener(
+
     "click",
 
     function () {
@@ -195,25 +174,39 @@ botaoCadastro.addEventListener(
         while (continuar) {
 
             let nome = validarEntrada(
-                prompt("Digite o nome do vinho:")
+
+                prompt(
+                    "Digite o nome do vinho:"
+                )
+
             );
 
             let tipo = validarEntrada(
-                prompt("Digite o tipo do vinho:")
+
+                prompt(
+                    "Digite o tipo do vinho:"
+                )
+
             );
 
             let safra = validarNumero(
+
                 Number(
-                    prompt("Digite a safra do vinho:")
+                    prompt(
+                        "Digite a safra do vinho:"
+                    )
                 )
+
             );
 
             let quantidade = validarNumero(
+
                 Number(
                     prompt(
                         "Digite a quantidade em estoque:"
                     )
                 )
+
             );
 
             let classificacao =
@@ -227,24 +220,74 @@ botaoCadastro.addEventListener(
                 classificacao
             );
 
-            vinhos.push({
+            // ===============================
+            // NOVO VINHO
+            // ===============================
+
+            let novoVinho = {
 
                 nome: nome,
                 tipo: tipo,
                 safra: safra,
                 estoque: quantidade
 
-            });
+            };
+
+            // ADICIONAR AO ARRAY
+            vinhos.push(novoVinho);
+
+            // MOSTRAR NOVO CARD
+            let container =
+                document.getElementById(
+                    "novos-vinhos"
+                );
+
+            container.innerHTML += `
+
+                <div class="card">
+
+                    <h3>${novoVinho.nome}</h3>
+
+                    <img
+                        src="./src/assets/vinho_10.png"
+                        alt="vinho"
+                    >
+
+                    <p>
+                        Tipo: ${novoVinho.tipo}<br>
+                        Safra: ${novoVinho.safra}
+                    </p>
+
+                    <div class="preco">
+                        Estoque:
+                        ${novoVinho.estoque}
+                    </div>
+
+                </div>
+
+            `;
 
             contador++;
 
-            if (estoqueBaixo(quantidade)) {
+            // ===============================
+            // ESTOQUE BAIXO
+            // ===============================
+
+            if (
+                estoqueBaixo(quantidade)
+            ) {
 
                 totalEstoqueBaixo++;
 
             }
 
-            if (safra < safraMaisAntiga) {
+            // ===============================
+            // VINHO MAIS ANTIGO
+            // ===============================
+
+            if (
+                safra < safraMaisAntiga
+            ) {
 
                 safraMaisAntiga = safra;
 
@@ -252,14 +295,22 @@ botaoCadastro.addEventListener(
 
             }
 
-            let resposta = validarEntrada(
-                prompt(
-                    "Deseja cadastrar outro vinho? (sim/não)"
-                )
-            );
+            // ===============================
+            // CONTINUAR
+            // ===============================
+
+            let resposta =
+                validarEntrada(
+
+                    prompt(
+                        "Deseja cadastrar outro vinho? (sim/não)"
+                    )
+
+                );
 
             if (
-                resposta.toLowerCase() !== "sim"
+                resposta.toLowerCase() !==
+                "sim"
             ) {
 
                 continuar = false;
@@ -276,10 +327,10 @@ botaoCadastro.addEventListener(
 
             "===== RELATÓRIO FINAL =====" +
 
-            "\nTotal cadastrados: " +
+            "\nTotal de vinhos cadastrados: " +
             contador +
 
-            "\nEstoque baixo: " +
+            "\nTotal com estoque baixo: " +
             totalEstoqueBaixo +
 
             "\nVinho mais antigo: " +
@@ -293,6 +344,8 @@ botaoCadastro.addEventListener(
         alert(
 
             "Cadastro finalizado!\n\n" +
+
+            "Para visualizar os resultados:\n\n" +
 
             "Pressione F12\n\n" +
 
@@ -332,15 +385,17 @@ botaoCadastro.addEventListener(
         });
 
         // ===============================
-        // VINHOS COM ESTOQUE BAIXO
+        // ESTOQUE BAIXO
         // ===============================
 
         let estoqueBaixoLista =
-            vinhos.filter(function (vinho) {
+            vinhos.filter(
+                function (vinho) {
 
-                return vinho.estoque < 5;
+                    return vinho.estoque < 5;
 
-            });
+                }
+            );
 
         console.log(
             "===== VINHOS COM ESTOQUE BAIXO ====="
@@ -366,11 +421,13 @@ botaoCadastro.addEventListener(
         // ===============================
 
         let nomesMaiusculos =
-            vinhos.map(function (vinho) {
+            vinhos.map(
+                function (vinho) {
 
-                return vinho.nome.toUpperCase();
+                    return vinho.nome.toUpperCase();
 
-            });
+                }
+            );
 
         console.log(
             "===== NOMES EM MAIÚSCULO ====="
@@ -391,9 +448,15 @@ botaoCadastro.addEventListener(
         let estoqueTotal =
             vinhos.reduce(
 
-                function (total, vinho) {
+                function (
+                    total,
+                    vinho
+                ) {
 
-                    return total + vinho.estoque;
+                    return (
+                        total +
+                        vinho.estoque
+                    );
 
                 },
 
@@ -431,7 +494,7 @@ botaoSobre.addEventListener(
 
             "organizar o estoque e classificar " +
 
-            "automaticamente cada vinho conforme sua safra."
+            "automaticamente cada vinho."
 
         );
 
@@ -440,7 +503,7 @@ botaoSobre.addEventListener(
 );
 
 // ===============================
-// VINHO DESTAQUE 1
+// VINHO 1
 // ===============================
 
 function mostrarVinho1() {
@@ -451,18 +514,14 @@ function mostrarVinho1() {
 
         "Um vinho sofisticado com notas " +
 
-        "tropicais e acabamento suave.\n\n" +
-
-        "Tipo: Branco\n" +
-
-        "Preço: R$ 169,90"
+        "tropicais e acabamento suave."
 
     );
 
 }
 
 // ===============================
-// VINHO DESTAQUE 2
+// VINHO 2
 // ===============================
 
 function mostrarVinho2() {
@@ -473,11 +532,7 @@ function mostrarVinho2() {
 
         "Intenso, encorpado e marcante, " +
 
-        "direto dos vinhedos de Mendoza.\n\n" +
-
-        "Tipo: Tinto\n" +
-
-        "Preço: R$ 239,90"
+        "direto dos vinhedos de Mendoza."
 
     );
 
