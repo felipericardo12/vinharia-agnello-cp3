@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/css/estilo.css">
+
+    <title>Vinharia Agnello</title>
+</head>
+
+<body>
+
+<header>
+
+    <img src="./src/assets/logo2.png" id="logo" alt="logo">
+
+    <div class="textosheader">
+        <h1>Vinharia Agnello</h1>
+        <p>Os melhores vinhos para os melhores gostos</p>
+    </div>
+
+    <nav>
+        <ul>
+            <li id="cadastro">
+                <a href="#">Cadastrar vinho</a>
+            </li>
+
+            <li id="sobre">
+                <a href="#">Sobre o projeto</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+
+<main>
+
+    <!-- VINHOS EM DESTAQUE -->
+
+    <section class="destaques">
+
+        <h2>Vinhos em Destaque</h2>
+
+        <div class="destaque-container">
+
+            <div class="destaque-card">
+                <img src="./src/assets/vinho_3.png" alt="vinho destaque 1">
+
+                <div class="destaque-texto">
+                    <h3>Monteluce Reserva</h3>
+
+                    <p>
+                        Um vinho sofisticado com notas tropicais e acabamento suave.
+                    </p>
+
+                    <div class="preco">R$ 169,90</div>
+
+                    <br><br>
+
+                    <button onclick="mostrarVinho1()">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+
+            <div class="destaque-card">
+                <img src="./src/assets/vinho_7.png" alt="vinho destaque 2">
+
+                <div class="destaque-texto">
+                    <h3>Vale Rosso Premium</h3>
+
+                    <p>
+                        Intenso, encorpado e marcante, direto dos vinhedos de Mendoza.
+                    </p>
+
+                    <div class="preco">R$ 239,90</div>
+
+                    <br><br>
+
+                    <button onclick="mostrarVinho2()">
+                        Saiba Mais
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LINHA 1 -->
+
+    <div class="container">
+
+        <div class="card">
+            <h3>Rosé Firenze</h3>
+
+            <img src="./src/assets/vinho_1.png" alt="vinho1">
+
+            <p>
+                Um rosé leve, uma ótima opção para noites tranquilas e relaxantes.
+            </p>
+
+            <div class="preco">R$ 94,90</div>
+        </div>
+
+        <div class="card">
+            <h3>Quartzo Branco</h3>
+
+            <img src="./src/assets/vinho_2.png" alt="vinho2">
+
+            <p>
+                Inspirado na cor brilhante do quartzo.
+            </p>
+
+            <div class="preco">R$ 129,90</div>
+        </div>
+
+        <div class="card">
+            <h3>Monteluce Reserva</h3>
+
+            <img src="./src/assets/vinho_3.png" alt="vinho3">
+
+            <p>
+                Um vinho com notas de baunilha e frutas tropicais.
+            </p>
+
+            <div class="preco">R$ 169,90</div>
+        </div>
+
+        <div class="card">
+            <h3>Aurora Rosé</h3>
+
+            <img src="./src/assets/vinho_4.png" alt="vinho4">
+
+            <p>
+                Acidez vibrante, rejuvenescedor e vivo.
+            </p>
+
+            <div class="preco">R$ 109,90</div>
+        </div>
+
+    </div>
+
+    <!-- LINHA 2 -->
+
+    <div class="container">
+
+        <div class="card">
+            <h3>Imperium Noir</h3>
+
+            <img src="./src/assets/vinho_5 (2).png" alt="vinho5">
+
+            <p>
+                Um tinto seco potente, envelhecido em carvalho.
+            </p>
+
+            <div class="preco">R$ 199,90</div>
+        </div>
+
+        <div class="card">
+            <h3>Veluna Classic</h3>
+
+            <img src="./src/assets/vinho_6.png" alt="vinho6">
+
+            <p>
+                Uma combinação secreta de uvas tintas secas de safra única.
+            </p>
+
+            <div class="preco">R$ 174,90</div>
+        </div>
+
+        <div class="card">
+            <h3>Vale Rosso Premium</h3>
+
+            <img src="./src/assets/vinho_7.png" alt="vinho7">
+
+            <p>
+                Tradicional da região de Mendoza, intenso e com cor violeta profunda.
+            </p>
+
+            <div class="preco">R$ 239,90</div>
+        </div>
+
+        <div class="card">
+            <h3>Terra Nobile</h3>
+
+            <img src="./src/assets/vinho_8.png" alt="vinho8">
+
+            <p>
+                Um argentino robusto, com notas de especiarias e pimenta-preta.
+            </p>
+
+            <div class="preco">R$ 189,90</div>
+        </div>
+
+    </div>
+    
+</main>
+
+<footer>
+    <p>&copy; - 2026 - Direitos Reservados</p>
+</footer>
+
+<script src="./src/js/script.js"></script>
+
+</body>
+</html>
